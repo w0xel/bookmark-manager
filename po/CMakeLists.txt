@@ -8,4 +8,6 @@ include (Translations)
     ../src/Polkit
     ../src/Tests
     ../src/Views
+    ../data/com.github.bartzaalberg.bookmark-manager.desktop.in
+    ../data/com.github.bartzaalberg.bookmark-manager.appdata.xml.in
 )
