@@ -7,6 +7,7 @@ public class BookmarkForm : Gtk.Grid{
     protected Gtk.Entry hostEntry = new BookmarkFormEntry (_("server1"));
     protected Gtk.Entry hostNameEntry = new BookmarkFormEntry (_("127.0.0.1"));
     protected Gtk.Entry userNameEntry = new BookmarkFormEntry (_("james"));
+    protected Gtk.Entry localForwardEntry = new BookmarkFormEntry (_("8080 127.0.7.1:80"));
     protected Gtk.Entry portEntry = new BookmarkFormEntry (_("80"));
     protected Gtk.CheckButton agentForwardCheckButton = new BookmarkFormCheckButton();
     protected Gtk.Entry proxyCommandEntry = new BookmarkFormEntry (_("ssh bookmark nc %h %p"));
@@ -21,6 +22,7 @@ public class BookmarkForm : Gtk.Grid{
         var hostLabel = new BookmarkFormLabel (_("Host:*"));
         var hostNameLabel = new BookmarkFormLabel (_("Host name:*"));
         var userNameLabel = new BookmarkFormLabel (_("Username:"));
+        var localForwardLabel = new BookmarkFormLabel (_("Local forward ssh tunnel:"));
         var portLabel = new BookmarkFormLabel (_("Port:"));
         var agentForwardLabel = new BookmarkFormLabel (_("Use agent forwarding:"));
         var proxyCommandLabel = new BookmarkFormLabel (_("Proxy command:"));
@@ -47,10 +49,12 @@ public class BookmarkForm : Gtk.Grid{
         attach (portEntry, 1, 5, 1, 1);
         attach (agentForwardLabel, 0, 6, 1, 1);
         attach (agentForwardCheckButton, 1, 6, 1, 1);
-        attach (proxyCommandLabel, 0, 7, 1, 1);
-        attach (proxyCommandEntry, 1, 7, 1, 1);
+        attach (localForwardLabel, 0, 7, 1, 1);
+        attach (localForwardEntry, 1, 7, 1, 1);
+        attach (proxyCommandLabel, 0, 8, 1, 1);
+        attach (proxyCommandEntry, 1, 8, 1, 1);
 
-        attach (button_box, 1, 8, 1, 1); 
+        attach (button_box, 1, 9, 1, 1); 
     }
 
     public bool isNotValid(Bookmark newBookmark){

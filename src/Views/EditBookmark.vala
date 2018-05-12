@@ -27,6 +27,7 @@ public class EditBookmark : BookmarkForm{
         userNameEntry.text = "";
         agentForwardCheckButton.active = false;
         proxyCommandEntry.text = "";
+        localForwardEntry.text = "";
         
         if(bookmark.getNickname() != null){
             nicknameEntry.text = bookmark.getNickname();
@@ -54,6 +55,10 @@ public class EditBookmark : BookmarkForm{
         if(bookmark.getProxyCommand() != null){ 
             proxyCommandEntry.text = bookmark.getProxyCommand();
         }
+
+        if(bookmark.getLocalForward() != null){ 
+            localForwardEntry.text = bookmark.getLocalForward();
+        }
     }
 
     public void EditBookmarkInFile(){
@@ -69,6 +74,7 @@ public class EditBookmark : BookmarkForm{
         bookmark.setIp(hostNameEntry.text);  
         bookmark.setUser(userNameEntry.text);  
         bookmark.setPort(int.parse(portEntry.text));
+        bookmark.setLocalForward(localForwardEntry.text);
 
         if(agentForwardCheckButton.active == true) {
             bookmark.setForwardAgent("yes");

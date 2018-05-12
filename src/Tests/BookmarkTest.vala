@@ -9,7 +9,8 @@ namespace BookmarkManager {
             string user = "nutty";
             int port = 8080;
             string forwardAgent = "yes";
-            string proxyCommand = "ssh vivek@Jumphost nc FooServer 22"; 
+            string proxyCommand = "ssh vivek@Jumphost nc FooServer 22";
+            string localForward = "8080 localhost:80";
 
             Bookmark bookmark = new Bookmark ();
             bookmark.setName(name);
@@ -18,6 +19,7 @@ namespace BookmarkManager {
             bookmark.setPort(port);
             bookmark.setForwardAgent(forwardAgent);
             bookmark.setProxyCommand(proxyCommand);
+            bookmark.setLocalForward(localForward);
 
             assert(bookmark.getName() == name);
             assert(bookmark.getIp() == ip);
@@ -25,6 +27,7 @@ namespace BookmarkManager {
             assert(bookmark.getPort() == port);
             assert(bookmark.getForwardAgent() == forwardAgent);
             assert(bookmark.getProxyCommand() == proxyCommand);
+            assert(bookmark.getLocalForward() == localForward);
         });
 
         Test.run ();

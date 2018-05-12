@@ -22,7 +22,8 @@ public class AddBookmark : BookmarkForm{
         bookmark.setName(hostEntry.text);
         bookmark.setIp(hostNameEntry.text);  
         bookmark.setUser(userNameEntry.text);  
-        bookmark.setPort(int.parse(portEntry.text));  
+        bookmark.setPort(int.parse(portEntry.text));
+        bookmark.setLocalForward(localForwardEntry.text);
 
         if(agentForwardCheckButton.active == true) {
            bookmark.setForwardAgent("yes");
