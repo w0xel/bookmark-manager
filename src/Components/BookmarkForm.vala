@@ -10,6 +10,7 @@ public class BookmarkForm : Gtk.Grid{
     protected Gtk.Entry localForwardEntry = new BookmarkFormEntry (_("8080 127.0.7.1:80"));
     protected Gtk.Entry portEntry = new BookmarkFormEntry (_("80"));
     protected Gtk.CheckButton agentForwardCheckButton = new BookmarkFormCheckButton();
+    protected Gtk.CheckButton backgroundCheckButton = new BookmarkFormCheckButton();
     protected Gtk.Entry proxyCommandEntry = new BookmarkFormEntry (_("ssh bookmark nc %h %p"));
 
     protected Gtk.ButtonBox button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
@@ -24,6 +25,7 @@ public class BookmarkForm : Gtk.Grid{
         var userNameLabel = new BookmarkFormLabel (_("Username:"));
         var localForwardLabel = new BookmarkFormLabel (_("Local forward ssh tunnel:"));
         var portLabel = new BookmarkFormLabel (_("Port:"));
+        var backgroundLabel = new BookmarkFormLabel (_("Run in background"));
         var agentForwardLabel = new BookmarkFormLabel (_("Use agent forwarding:"));
         var proxyCommandLabel = new BookmarkFormLabel (_("Proxy command:"));
 
@@ -53,8 +55,10 @@ public class BookmarkForm : Gtk.Grid{
         attach (localForwardEntry, 1, 7, 1, 1);
         attach (proxyCommandLabel, 0, 8, 1, 1);
         attach (proxyCommandEntry, 1, 8, 1, 1);
+        attach (backgroundLabel, 0, 9, 1, 1);
+        attach (backgroundCheckButton, 1, 9, 1, 1);
 
-        attach (button_box, 1, 9, 1, 1); 
+        attach (button_box, 1, 10, 1, 1); 
     }
 
     public bool isNotValid(Bookmark newBookmark){

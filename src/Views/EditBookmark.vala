@@ -28,6 +28,7 @@ public class EditBookmark : BookmarkForm{
         agentForwardCheckButton.active = false;
         proxyCommandEntry.text = "";
         localForwardEntry.text = "";
+        backgroundCheckButton.active = false;
         
         if(bookmark.getNickname() != null){
             nicknameEntry.text = bookmark.getNickname();
@@ -59,6 +60,10 @@ public class EditBookmark : BookmarkForm{
         if(bookmark.getLocalForward() != null){ 
             localForwardEntry.text = bookmark.getLocalForward();
         }
+
+        if(bookmark.getRunInBackground() == true){
+            backgroundCheckButton.active = true;
+        }
     }
 
     public void EditBookmarkInFile(){
@@ -78,6 +83,12 @@ public class EditBookmark : BookmarkForm{
 
         if(agentForwardCheckButton.active == true) {
             bookmark.setForwardAgent("yes");
+        }
+
+        if(backgroundCheckButton.active == true) {
+            bookmark.setRunInBackground(true);
+        } else {
+            bookmark.setRunInBackground(false);
         }
          
         bookmark.setProxyCommand(proxyCommandEntry.text);  

@@ -9,6 +9,7 @@ public class Bookmark : Object {
     private int port;
     private string forwardAgent;
     private string proxyCommand;
+    private bool runInBackground;
 
     private int serverAliveInterval;
     private string logLevel;
@@ -203,6 +204,14 @@ public class Bookmark : Object {
 
     public void setControlPersist(string controlPersist){
         this.controlPersist = controlPersist;
+    }
+
+    public void setRunInBackground(bool runInBackground){
+        this.runInBackground = runInBackground;
+    }
+
+    public bool getRunInBackground(){
+        return this.runInBackground;
     }
 }
 }

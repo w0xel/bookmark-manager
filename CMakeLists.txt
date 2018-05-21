@@ -24,6 +24,8 @@
         gtk+-3.0
         granite
         vte-2.91
+        appindicator3-0.1
+        libnotify
     )
 
     find_package (PkgConfig)
@@ -71,6 +73,7 @@
     include(ValaPrecompile)
     vala_precompile(VALA_C ${EXEC_NAME}
         src/Application.vala
+        src/SSHManager.vala
         src/MainWindow.vala
         src/ListBoxRow.vala
         src/ListBox.vala
@@ -100,6 +103,9 @@
         gtk+-3.0
         granite
         vte-2.91
+        posix
+        appindicator3-0.1
+        libnotify
     )
 
     include (GResource)

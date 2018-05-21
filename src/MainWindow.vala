@@ -3,13 +3,17 @@ using Granite.Widgets;
 namespace BookmarkManager {
 public class MainWindow : Gtk.Window{
 
-    private Settings settings = new Settings ("com.github.bartzaalberg.bookmark-manager");
+    public Settings settings = new Settings ("com.github.bartzaalberg.bookmark-manager");
+    private static bool firstStart = true;
 
     private ListBox listBox = ListBox.get_instance();
     private StackManager stackManager = StackManager.get_instance();
     private HeaderBar headerBar = HeaderBar.get_instance();
 
     construct {
+        stackManager = StackManager.get_instance();
+        if (MainWindow.firstStart)
+            Granite.Services.Paths.initialize(settings.schema, "");
 
         loadGresources();
 
@@ -22,12 +26,18 @@ public class MainWindow : Gtk.Window{
 
         set_default_size(Constants.APPLICATION_WIDTH, Constants.APPLICATION_HEIGHT);
         set_titlebar (headerBar);
-
+        
         stackManager.loadViews(this);
+
+        MainWindow.firstStart = false;
 
         listBox.getBookmarks("");
 
         addShortcuts();
+    }
+
+    ~MainWindow() {
+        print("Window destruct\n");
     }
 
     private void loadGresources(){

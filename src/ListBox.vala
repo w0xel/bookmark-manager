@@ -18,6 +18,10 @@ public class ListBox : Gtk.ListBox{
         return instance;
     }
 
+    public static void del_instance() {
+        instance = null;
+    }
+
     public void emptyList(){
         this.foreach ((ListBoxRow) => {
             this.remove(ListBoxRow);

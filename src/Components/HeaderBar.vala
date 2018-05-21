@@ -60,6 +60,10 @@ public class HeaderBar : Gtk.HeaderBar {
         return instance;
     }
 
+    public static void del_instance() {
+        instance = null;
+    }
+
     private void generateMenuButton(){
         menu_button.has_tooltip = true;
         menu_button.tooltip_text = (_("Settings"));

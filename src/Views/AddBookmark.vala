@@ -24,9 +24,14 @@ public class AddBookmark : BookmarkForm{
         bookmark.setUser(userNameEntry.text);  
         bookmark.setPort(int.parse(portEntry.text));
         bookmark.setLocalForward(localForwardEntry.text);
+        bookmark.setRunInBackground(false);
 
         if(agentForwardCheckButton.active == true) {
            bookmark.setForwardAgent("yes");
+        }
+
+        if(backgroundCheckButton.active == true) {
+            bookmark.setRunInBackground(true);
         }
              
         bookmark.setProxyCommand(proxyCommandEntry.text);  

@@ -33,6 +33,13 @@ public class ConfigFileReader : Object{
                     bookmarks[bookmarks.length - 1].setNickname(valueOnLine);
                     continue;
                 }
+                if(inArray(variableOnLine, { "#background", "#Background" })){
+                    bool runInBackground = false;
+                    if (valueOnLine == "yes" || valueOnLine == "Yes")
+                        runInBackground = true;
+                    bookmarks[bookmarks.length - 1].setRunInBackground(runInBackground);
+                    continue;
+                }
                 if(inArray(variableOnLine, { "hostName", "HostName" })){
                     bookmarks[bookmarks.length - 1].setIp(valueOnLine);
                     continue;
@@ -281,6 +288,10 @@ public class ConfigFileReader : Object{
 
         if(bookmark.getNickname() != null && bookmark.getNickname() != ""){ 
             rawBookmark += "\n    #nickname " + bookmark.getNickname();
+        }
+
+        if(bookmark.getRunInBackground() == true){ 
+            rawBookmark += "\n    #background Yes";
         }
 
         if(bookmark.getIp() != null){ 

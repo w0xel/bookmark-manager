@@ -31,6 +31,11 @@ public class StackManager : Object {
         return instance;
     }
 
+    public static void del_instance() {
+        if (instance != null)
+            instance = null;
+    }
+
     public Gtk.Stack getStack() {
         return this.stack;
     }
